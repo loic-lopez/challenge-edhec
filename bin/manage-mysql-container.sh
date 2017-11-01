@@ -6,8 +6,8 @@ function getContainerHealth {
 
 function waitContainer {
     echo -e "\x1B[1;35mWaiting mysql container to be ready.\x1B[0m"
-    while STATUS=$(getContainerHealth $1); [ $STATUS != "\"healthy\"" ]; do
-	if [ $STATUS == "\"unhealthy\"" ]; then
+    while STATUS=$(getContainerHealth $1); [ ${STATUS} != "\"healthy\"" ]; do
+	if [ ${STATUS} == "\"unhealthy\"" ]; then
 	    echo "Failed!"
 	    exit -1
 	fi
@@ -27,6 +27,7 @@ function import {
     docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_ROOT_HOST=172.17.0.1 -d mysql/mysql-server
     waitContainer mysql
     import_database
+    docker exec -it mysql mysql -u root --password=root --execute "GRANT ALL ON *.* to root@'%' IDENTIFIED BY 'root';"
     echo -e "\x1B[0;32mMysql container is ready!\x1B[0m"
 }
 
