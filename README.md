@@ -1,4 +1,17 @@
+# Challenge Epitech/Edhec
 
-**Run** `./install_project/install.sh` **to install laravel dependencies & docker**
 
-**Start web server** ``sudo php artisan serve --host=0.0.0.0 --port=80``
+![](https://cdn-images-1.medium.com/max/1200/1*aCCH418GrsTqzVdEONe33g.png)
+
+## Installation
+
+OS X & Linux:
+
+`./install/install.sh`
+
+## Development
+
+**Import database** `./bin/manage-local-webserver.sh import`
+
+**Start web server** `./bin/manage-local-webserver.sh start`
+
