@@ -1,7 +1,7 @@
 # Challenge Epitech/Edhec
 
 
-![](https://cdn-images-1.medium.com/max/1200/1*aCCH418GrsTqzVdEONe33g.png)
+![laravel](https://cdn-images-1.medium.com/max/1200/1*aCCH418GrsTqzVdEONe33g.png){ width=50% }
 
 ## Installation
 
