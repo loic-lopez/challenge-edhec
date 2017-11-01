@@ -1,7 +1,8 @@
 # Challenge Epitech/Edhec
 
 
-![laravel](https://cdn-images-1.medium.com/max/1200/1*aCCH418GrsTqzVdEONe33g.png){ width=50% }
+<img align="left" width="415" src="http://hdqwalls.com/wallpapers/laravel-to.jpg" hspace="20"/>
+<img align="left" width="415" src="http://ryanjbaxter.com/wp-content/uploads/2015/12/docker-wallpaper-black.jpg" hspace="20"/>
 
 ## Installation
 
