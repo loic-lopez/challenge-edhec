@@ -8,11 +8,26 @@
 
 OS X & Linux:
 
+### WARNING! When asked the root password for MySQL will be "root".
+
 `./install/install.sh`
+
+`cp .env.example .env`
+
+`composer update`
+
+`./bin/manage-local-webserver.sh import`
+
 
 ## Development
 
-**Import database** `./bin/manage-local-webserver.sh import`
+## Database Management
+**Import database** `./bin/manage-mysql-container.sh import`
 
-**Start web server** `./bin/manage-local-webserver.sh start`
+**Re import database** `./bin/manage-mysql-container.sh reimport`
+
+## Local web server management
+**Start web local server** `./bin/manage-local-webserver.sh start`
+
+**Stop web local server** `./bin/manage-local-webserver.sh stop`
 
