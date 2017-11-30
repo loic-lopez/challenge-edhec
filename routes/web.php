@@ -12,9 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/locale', "HomeController@language");
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
