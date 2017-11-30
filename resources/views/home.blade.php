@@ -22,37 +22,12 @@
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Weather Report</h4>
-                        </div>
-                        <div class="d-flex  p-l-20 bg-light align-items-center flex-row ">
-                            <div class="p-2 display-5 text-info">
-                                <canvas class="sleet" width="44" height="44"></canvas> <span>73<sup>°</sup></span></div>
-                            <div class="p-2">
-                                <h3 class="m-b-0">Saturday</h3><small>Ahmedabad, India</small></div>
+                            <h4 class="card-title">@lang('general.weather')</h4>
                         </div>
                         <div class="card-body">
+                            <hr>
                             <table class="table no-border lite-padding">
                                 <tbody>
-                                <tr>
-                                    <td>Wind</td>
-                                    <td class="font-medium">ESE 17 mph</td>
-                                </tr>
-                                <tr>
-                                    <td>Humidity</td>
-                                    <td class="font-medium">83%</td>
-                                </tr>
-                                <tr>
-                                    <td>Pressure</td>
-                                    <td class="font-medium">28.56 in</td>
-                                </tr>
-                                <tr>
-                                    <td>Cloud Cover</td>
-                                    <td class="font-medium">78%</td>
-                                </tr>
-                                <tr>
-                                    <td>Ceiling</td>
-                                    <td class="font-medium">25760 ft</td>
-                                </tr>
                                 <tr>
                                     <div  id='my-container'></div>
                                     <script  type="text/javascript"  charset="utf-8">
@@ -93,7 +68,7 @@
                                                     key--;
                                                 }
                                                 var locale = "{{ app()->getLocale() }}";
-                                                if (locale == "fr")
+                                                if (locale === "fr")
                                                     var date = french[key] + aqi.date.substr(aqi.date.indexOf(" "));
                                                 else if (locale == "en")
                                                 {
@@ -111,20 +86,6 @@
                                 </tbody>
                             </table>
                             <hr>
-                            <ul class="list-unstyled row text-center city-weather-days">
-                                <li class="col">
-                                    <canvas class="clear-day" width="30" height="30"></canvas><span>09:30</span>
-                                    <h3>70<sup>°</sup></h3></li>
-                                <li class="col">
-                                    <canvas class="partly-cloudy-day" width="30" height="30"></canvas><span>11:30</span>
-                                    <h3>72<sup>°</sup></h3></li>
-                                <li class="col">
-                                    <canvas class="wind" width="30" height="30"></canvas><span>13:30</span>
-                                    <h3>75<sup>°</sup></h3></li>
-                                <li class="col">
-                                    <canvas class="snow" width="30" height="30"></canvas><span>15:30</span>
-                                    <h3>76<sup>°</sup></h3></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
