@@ -2,76 +2,26 @@
 
 @section('content')
     <div class="page-wrapper">
-
+        <script src="/assets/plugins/gridstack/lodash.js"></script>
+        <script>
+            (function(w,d,t,f){  w[f]=w[f]||function(c,k,n){s=w[f],k=s['k']=(s['k']||(k?('&k='+k):''));s['c']=
+                c=(c  instanceof  Array)?c:[c];s['n']=n=n||0;L=d.createElement(t),e=d.getElementsByTagName(t)[0];
+                L.async=1;L.src='//feed.aqicn.org/feed/'+(c[n].city)+'/'+(c[n].lang||'')+'/feed.v1.js?n='+n+k;
+                e.parentNode.insertBefore(L,e);  };  })(  window,document,'script','_aqiFeed'  );
+        </script>
         <!-- Row -->
-        <div class="row page-titles" style="background:url(/assets/images/background/user-bg.jpg) no-repeat center top">
-            <div class="col-lg-12 text-center">
-                <h1 class="m-t-30">Markarn Doe</h1>
-                <h5 class="text-muted m-b-30"><i class="ti-pin"></i> Ahmedabad, India</h5>
-            </div>
-        </div>
+        <div class="row page-titles"></div>
         <!-- Row -->
         <!-- ============================================================== -->
         <!-- Container fluid  -->
         <!-- ============================================================== -->
         <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- Start Page Content -->
-            <!-- ============================================================== -->
-            <!-- Row -->
-            <div class="row">
-                <!-- Column -->
-                <div class="col-lg-8 col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">Profile visit Overview</h4>
-                            <h6 class="card-subtitle">Visits from Mobile and Desktop</h6>
-                            <div class="amp-pxl m-t-40" style="height: 335px;"></div>
-                            <div class="text-center">
-                                <ul class="list-inline">
-                                    <li>
-                                        <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Desktop</h6> </li>
-                                    <li>
-                                        <h6 class="text-muted  text-info"><i class="fa fa-circle font-10 m-r-10"></i>Mobile</h6> </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Column -->
-                <div class="col-lg-4">
-                    <!-- Column -->
-                    <div class="card"> <img class="card-img-top" src="/assets/images/background/profile-bg.jpg" alt="Card image cap" style="max-height: 165px;">
-                        <div class="card-body little-profile text-center">
-                            <div class="pro-img"><img src="/assets/images/users/4.jpg" alt="user" /></div>
-                            <h3 class="m-b-0">Markarn Doe</h3>
-                            <p>Web Designer &amp; Developer</p>
-                            <a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-info btn-md btn-rounded">Follow</a>
-                            <div class="row text-center m-t-20">
-                                <div class="col-lg-4 col-md-4 m-t-20">
-                                    <h3 class="m-b-0 font-light">1099</h3><small>Articles</small></div>
-                                <div class="col-lg-4 col-md-4 m-t-20">
-                                    <h3 class="m-b-0 font-light">23,469</h3><small>Followers</small></div>
-                                <div class="col-lg-4 col-md-4 m-t-20">
-                                    <h3 class="m-b-0 font-light">6035</h3><small>Following</small></div>
-                                <div class="col-md-12 m-b-10"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Column -->
-                </div>
-                <!-- Column -->
-            </div>
-            <!-- Row -->
+
             <!-- Row -->
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <select class="custom-select pull-right">
-                                <option selected="">Today</option>
-                                <option value="1">Weekly</option>
-                            </select>
                             <h4 class="card-title">Weather Report</h4>
                         </div>
                         <div class="d-flex  p-l-20 bg-light align-items-center flex-row ">
@@ -102,6 +52,61 @@
                                 <tr>
                                     <td>Ceiling</td>
                                     <td class="font-medium">25760 ft</td>
+                                </tr>
+                                <tr>
+                                    <div  id='my-container'></div>
+                                    <script  type="text/javascript"  charset="utf-8">
+                                        var french = {
+                                            0: "lundi",
+                                            1: "mardi",
+                                            2: "mercredi",
+                                            3: "jeudi",
+                                            4: "vendredi",
+                                            5: "samedi",
+                                            6: "dimanche"
+                                        };
+                                        var english = {
+                                            0: "Monday",
+                                            1: "Tuesday",
+                                            2: "Wednesday",
+                                            3: "Thursday",
+                                            4: "Friday",
+                                            5: "Saturday",
+                                            6: "Sunday"
+                                        };
+                                        var keyByValue = function(value, tab) {
+
+                                            var kArray = Object.keys(tab);        // Creating array of keys
+                                            var vArray = Object.values(tab);      // Creating array of values
+                                            var vIndex = vArray.indexOf(value);         // Finding value index
+
+                                            return kArray[vIndex];                      // Returning key by value index
+                                        }
+                                        _aqiFeed({  city:"{{ \Illuminate\Support\Facades\Auth::user()->city_name }}",
+                                            lang:"{{ app()->getLocale() }}",  callback:function(aqi){
+                                                var key;
+                                                var day = aqi.date.substr(0, aqi.date.indexOf(" "));
+                                                if ((key = keyByValue(day, french)) === 0)
+                                                    key = 6;
+                                                else
+                                                {
+                                                    key--;
+                                                }
+                                                var locale = "{{ app()->getLocale() }}";
+                                                if (locale == "fr")
+                                                    var date = french[key] + aqi.date.substr(aqi.date.indexOf(" "));
+                                                else if (locale == "en")
+                                                {
+
+                                                    if ((key = keyByValue(day, english)) === 0)
+                                                        key = 6;
+                                                    var date = english[key] + aqi.date.substr(aqi.date.indexOf(" "));
+                                                }
+
+                                                aqi.details = aqi.details.replace(aqi.date, date);
+                                                $("#my-container").html(aqi.details);
+                                            }});
+                                    </script>
                                 </tr>
                                 </tbody>
                             </table>
@@ -459,64 +464,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Row -->
-            <!-- ============================================================== -->
-            <!-- End PAge Content -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Right sidebar -->
-            <!-- ============================================================== -->
-            <!-- .right-sidebar -->
-            <div class="right-sidebar">
-                <div class="slimscrollright">
-                    <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
-                    <div class="r-panel-body">
-                        <ul id="themecolors" class="m-t-20">
-                            <li><b>With Light sidebar</b></li>
-                            <li><a href="javascript:void(0)" data-theme="default" class="default-theme">1</a></li>
-                            <li><a href="javascript:void(0)" data-theme="green" class="green-theme">2</a></li>
-                            <li><a href="javascript:void(0)" data-theme="red" class="red-theme">3</a></li>
-                            <li><a href="javascript:void(0)" data-theme="blue" class="blue-theme working">4</a></li>
-                            <li><a href="javascript:void(0)" data-theme="purple" class="purple-theme">5</a></li>
-                            <li><a href="javascript:void(0)" data-theme="megna" class="megna-theme">6</a></li>
-                            <li class="d-block m-t-30"><b>With Dark sidebar</b></li>
-                            <li><a href="javascript:void(0)" data-theme="default-dark" class="default-dark-theme">7</a></li>
-                            <li><a href="javascript:void(0)" data-theme="green-dark" class="green-dark-theme">8</a></li>
-                            <li><a href="javascript:void(0)" data-theme="red-dark" class="red-dark-theme">9</a></li>
-                            <li><a href="javascript:void(0)" data-theme="blue-dark" class="blue-dark-theme">10</a></li>
-                            <li><a href="javascript:void(0)" data-theme="purple-dark" class="purple-dark-theme">11</a></li>
-                            <li><a href="javascript:void(0)" data-theme="megna-dark" class="megna-dark-theme ">12</a></li>
-                        </ul>
-                        <ul class="m-t-20 chatonline">
-                            <li><b>Chat option</b></li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="/assets/images/users/1.jpg" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="/assets/images/users/2.jpg" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="/assets/images/users/3.jpg" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="/assets/images/users/4.jpg" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="/assets/images/users/5.jpg" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="/assets/images/users/6.jpg" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="/assets/images/users/7.jpg" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="/assets/images/users/8.jpg" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <!-- ============================================================== -->
             <!-- End Right sidebar -->
             <!-- ============================================================== -->
@@ -527,7 +474,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="footer"> © 2017 Admin Press Admin by themedesigner.in </footer>
+        <footer class="footer"> © 2017 {{ config('app.name') }} </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->
