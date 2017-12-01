@@ -10,6 +10,7 @@ return [
     "email" => "Adresse mél",
     "pwd" => "Mot de passe",
     "confirmation " => "Confirmation du",
-    "update" => "Mettre à jour"
+    "update" => "Mettre à jour",
+    "Twitter" => "Connexion vers Twitter"
 
 ];

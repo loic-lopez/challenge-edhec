@@ -10,6 +10,7 @@ return [
     "email" => "Email address",
     "pwd" => "Password",
     "confirmation " => "Confirmation of",
-    "update" => "Update"
+    "update" => "Update",
+    "Twitter" => "Connection to Twitter"
 
 ];

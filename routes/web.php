@@ -20,3 +20,7 @@ Route::post('/profile/password', "ProfileController@ResetPassword");
 
 Auth::routes();
 
+Route::get('/profile/twitter', ['as' => 'twitter.login', "uses" => "TwitterController@signinTwitter"]);
+
+Route::get('/twitter/callback', ['as' => 'twitter.callback', "uses" => "TwitterController@callbackTwitter"]);
+

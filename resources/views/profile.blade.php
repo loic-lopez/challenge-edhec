@@ -86,7 +86,11 @@
                                             </div>
                                         </div>
                                     </form>
-                                    Ajouter la co twitter
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <button class="btn btn-warning" onclick="location.href='/profile/twitter'">@lang('general.Twitter')</button>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
