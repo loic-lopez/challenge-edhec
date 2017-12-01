@@ -69,12 +69,13 @@
                                     <div class="u-text">
                                         <h4>@lang('general.city') {{ $user->city_name }}</h4>
                                         <p class="text-muted">{{ $user->email }}</p>
-                                        <a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm">@lang('general.profile')</a></div>
+                                        <a href="/profile" class="btn btn-rounded btn-danger btn-sm">@lang('general.profile')</a></div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
                                 <form id="logout" action="/logout" method="post">
+                                    {{ csrf_field() }}
                                     <a href="#" onclick="document.getElementById('logout').submit();"><i
                                                 class="fa fa-power-off"></i> Logout</a>
                                 </form>

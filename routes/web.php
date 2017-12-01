@@ -15,5 +15,8 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/locale', "HomeController@language");
 
+Route::get('/profile', "ProfileController@index");
+Route::post('/profile/password', "ProfileController@ResetPassword");
+
 Auth::routes();
 

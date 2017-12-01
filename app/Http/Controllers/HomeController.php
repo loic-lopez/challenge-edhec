@@ -17,6 +17,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        // where city NICE order by date desc, time desc
     }
 
     /**
