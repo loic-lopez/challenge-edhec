@@ -20,7 +20,6 @@
             <!-- ============================================================== -->
             <script>
                 function changeLogoSize() {
-                    console.log($("#main-logo").css("height"));
                     if ($("#main-logo").css("height") === "80px")
                         $('#main-logo').css('height', '30px');
                     else
