@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 use Thujohn\Twitter\Facades\Twitter;
 
 class TwitterController extends Controller
@@ -77,5 +78,32 @@ class TwitterController extends Controller
 
             return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');
         }
+    }
+
+    public function PostTweet(Request $request)
+    {
+        $validator = Validator::make($request->all(),
+            [
+                'tweet' => 'required|string|min:6'
+            ]);
+
+        if ($validator->fails())
+        {
+            return redirect("/")->withErrors($validator->errors()->first());
+        }
+
+        Twitter::postTweet(['status' => $request->get("tweet")]);
+
+        return redirect('/');
+    }
+
+    public function GetUserTweets()
+    {
+        $tweets = array();
+        if (Session::has('access_token'))
+        {
+            $tweets = Twitter::getUserTimeline();
+        }
+        return response()->json($tweets);
     }
 }

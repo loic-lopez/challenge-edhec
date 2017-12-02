@@ -24,3 +24,7 @@ Route::get('/profile/twitter', ['as' => 'twitter.login', "uses" => "TwitterContr
 
 Route::get('/twitter/callback', ['as' => 'twitter.callback', "uses" => "TwitterController@callbackTwitter"]);
 
+Route::post('/twitter/tweet', "TwitterController@PostTweet");
+
+Route::get('/data/get', "DataController@GetData");
+

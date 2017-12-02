@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Thujohn\Twitter\Facades\Twitter;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,6 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        // where city NICE order by date desc, time desc
     }
 
     /**
@@ -27,7 +27,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $tweets = array();
+        if (Session::has('access_token'))
+        {
+            $tweets = Twitter::getUserTimeline();
+        }
+        return view('home', compact('tweets'));
     }
 
     public function language(Request $request)

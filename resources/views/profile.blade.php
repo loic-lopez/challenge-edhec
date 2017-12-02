@@ -71,13 +71,13 @@
                                         <div class="form-group">
                                             <label class="col-md-12">@lang('general.pwd')</label>
                                             <div class="col-md-12">
-                                                <input type="password" name="password" class="form-control form-control-line">
+                                                <input type="password" required=required  name="password" class="form-control form-control-line">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">@lang('general.confirmation ') @lang('general.pwd')</label>
                                             <div class="col-md-12">
-                                                <input type="password" name="password_confirmation" class="form-control form-control-line">
+                                                <input type="password" required=required name="password_confirmation" class="form-control form-control-line">
                                             </div>
                                         </div>
                                         <div class="form-group">
