@@ -16,15 +16,22 @@ OS X & Linux:
 
 `composer update`
 
-`./bin/manage-local-webserver.sh import`
+`php artisan key:generate`
+
+`cd bin && ./manage-local-webserver.sh import && cd ..`
+
+##### Initialize local database
+`php artisan migrate --seed`
+
+
 
 
 ## Development
 
 ## Database Management
-**Import database** `./bin/manage-mysql-container.sh import`
+**Import database** `cd bin && ./manage-mysql-container.sh import && cd ..`
 
-**Re import database** `./bin/manage-mysql-container.sh reimport`
+**Re import database** `cd bin && ./manage-mysql-container.sh reimport && cd ..`
 
 ## Local web server management
 **Start web local server** `./bin/manage-local-webserver.sh start`

@@ -19,6 +19,9 @@ function waitContainer {
 }
 
 function import_database {
+    sleep 2
+    docker exec -it mysql mysql -u root --password=root --execute "create database challenge;"
+    sleep 2
     cat backup.sql | docker exec -i mysql /usr/bin/mysql -u root --password=root challenge
 }
 
