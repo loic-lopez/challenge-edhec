@@ -66,7 +66,7 @@
                             <input id="checkbox-signup" type="checkbox" name="remember_token">
                             <label for="checkbox-signup"> Se souvenir de moi </label>
                         </div>
-                        <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Mot de passe oublié ?</a>
+                        {{--<a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Mot de passe oublié ?</a>--}}
                     </div>
                 </div>
                 <div class="form-group text-center m-t-20">
