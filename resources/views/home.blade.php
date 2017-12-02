@@ -58,7 +58,6 @@
                             <script  type="text/javascript"  charset="utf-8">
                                 _aqiFeed({  city:"{{ \Illuminate\Support\Facades\Auth::user()->city_name }}",
                                     lang:"{{ app()->getLocale() }}",  callback:function(aqi){
-                                        console.log(aqi);
                                         $("#my-container").html(aqi.details);
                                     }});
                             </script>
