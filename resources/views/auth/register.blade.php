@@ -9,7 +9,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
     <title>Piconn</title>
     <!-- Bootstrap Core CSS -->
     <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +40,7 @@
         <div class="card-body">
             <form class="form-horizontal form-material" id="loginform" action="/register" method="post">
                 {{ csrf_field() }}
-                <a href="javascript:void(0)" class="text-center db"><img src="/assets/images/logo-icon.png" alt="Home" /><br/><img src="/assets/images/logo-text.png" alt="Home" /></a>
+                <a href="javascript:void(0)" class="text-center db"><img src="/assets/images/users/user.svg" alt="Home" height="300" /></a>
                 <h3 class="box-title m-t-40 m-b-0">S'enregistrer</h3><small>Créer son compte :</small>
                 <div class="form-group m-t-20">
                     <div class="col-xs-12">
