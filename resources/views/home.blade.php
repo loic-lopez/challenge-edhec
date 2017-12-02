@@ -70,7 +70,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">@lang('general.weather')</h4>
-                            <label>Données en temps réel du panneau :</label>
+                            <label>@lang('general.signboard')</label>
                             <hr>
                             <div class="col-md-12">
                                 <h4><b>@lang('general.temperature')</b> <label id="temp_value"></label></h4>
@@ -95,7 +95,7 @@
                             <ul class="feeds" id="tweeter-feed">
                                 <hr>
                                 @if (empty($tweets))
-                                    <h4>Veuillez vous connecter à Tweeter</h4>
+                                    <h4>@lang('general.twitter.error')</h4>
                                 @endif
                                 @foreach($tweets as $tweet)
                                     <div class="tweet row">
@@ -132,7 +132,7 @@
                                 <tbody>
                                 <tr>
                                     @if (empty($tweets))
-                                        <h4>Veuillez vous connecter à Tweeter</h4>
+                                        <h4>@lang('general.twitter.error')</h4>
                                     @else
                                         <form class="form-horizontal form-material" action="/twitter/tweet" method="post">
                                             {{ csrf_field() }}

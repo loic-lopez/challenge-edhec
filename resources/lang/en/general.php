@@ -20,6 +20,8 @@ return [
     "temperature" => "Temperature: ",
     "humidity" => "Humidity: ",
     "time" => "Time: ",
-    "date" => "Date: "
+    "date" => "Date: ",
+    "twitter.error" => "Please login to Twitter.",
+    "signboard" => "Real-time panel data:"
 
 ];
